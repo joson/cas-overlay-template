@@ -85,14 +85,13 @@ idea {
 }
 
 bootWar {
-    //includeWarJars = true
     entryCompression = ZipEntryCompression.STORED
     overlays {
+        // https://docs.freefair.io/gradle-plugins/current/reference/#_io_freefair_war_overlay
         cas {
             from "org.apereo.cas:cas-server-webapp${project.appServer}:${casServerVersion}@war"
             provided = false
-            //excludes = ["WEB-INF/lib/cas-server-core*"]
-            //enableCompilation = true
+            //excludes = ["WEB-INF/lib/somejar-1.0*"]
         }
     }    
 }
