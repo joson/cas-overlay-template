@@ -107,7 +107,7 @@ task downloadShell (group: "shell", description: "Download CAS shell jar from sn
     doLast {
         def downloadFile
         if (isRunningCasServerSnapshot(casServerVersion)) {
-            def snapshotDir = "https://oss.sonatype.org/content/repositories/snapshots/org/apereo/cas/cas-server-support-shell/${casServerVersion}/"
+            def snapshotDir = "https://maven.aliyun.com/repository/public/org/apereo/cas/cas-server-support-shell/${casServerVersion}/"
             def files = new ApacheURLLister().listFiles(new URL(snapshotDir))
             files = files.sort{it.path}
             files.each {
@@ -116,7 +116,7 @@ task downloadShell (group: "shell", description: "Download CAS shell jar from sn
                 }
             }
         } else {
-            downloadFile = "https://repo1.maven.org/maven2/org/apereo/cas/cas-server-support-shell/${casServerVersion}/cas-server-support-shell-${casServerVersion}.jar"
+            downloadFile = "https://maven.aliyun.com/repository/public/org/apereo/cas/cas-server-support-shell/${casServerVersion}/cas-server-support-shell-${casServerVersion}.jar"
         }
         logger.info "Downloading file: ${downloadFile}"
         download {
@@ -205,9 +205,9 @@ task createKeystore (group: "build", description: "Create CAS keystore") {
             workingDir "."
             commandLine "keytool", "-exportcert", "-alias", "cas",
                     "-storepass", "changeit", "-keystore", keystorePath,
-                    "-file", "/etc/cas/cas.cer"
+                    "-file", "/etc/cas/config/cas.cer"
         }
-        logger.info "Import /etc/cas/cas.cer into your Java truststore (JAVA_HOME/lib/security/cacerts)"
+        logger.info "Import /etc/cas/config/cas.cer into your Java truststore (JAVA_HOME/lib/security/cacerts)"
     }
 }
 
