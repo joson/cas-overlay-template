@@ -131,7 +131,7 @@ function cli() {
 	COMMAND_FILE="${DOWNLOAD_DIR}/${JAR_FILE_NAME}"
 	if [ ! -f "$COMMAND_FILE" ]; then
 		mkdir -p $DOWNLOAD_DIR
-		./mvnw org.apache.maven.plugins:maven-dependency-plugin:3.0.2:get -DgroupId=org.apereo.cas -DartifactId=cas-server-support-shell -Dversion=$CAS_VERSION -Dpackaging=jar -DartifactItem.outputDirectory=$DOWNLOAD_DIR -DremoteRepositories=central::default::http://repo1.maven.apache.org/maven2,snapshots::::https://oss.sonatype.org/content/repositories/snapshots -Dtransitive=false
+		./mvnw org.apache.maven.plugins:maven-dependency-plugin:3.0.2:get -DgroupId=org.apereo.cas -DartifactId=cas-server-support-shell -Dversion=$CAS_VERSION -Dpackaging=jar -DartifactItem.outputDirectory=$DOWNLOAD_DIR -DremoteRepositories=central::default::https://maven.aliyun.com/repository/central,snapshots::::https://maven.aliyun.com/repository/public -Dtransitive=false
 		./mvnw org.apache.maven.plugins:maven-dependency-plugin:3.0.2:copy -Dmdep.useBaseVersion=true -Dartifact=org.apereo.cas:cas-server-support-shell:$CAS_VERSION:jar -DoutputDirectory=$DOWNLOAD_DIR
 	fi
 	java -jar $COMMAND_FILE "$@"

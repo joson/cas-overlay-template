@@ -70,7 +70,7 @@
         <cas.version>5.3.9</cas.version>
         <springboot.version>1.5.18.RELEASE</springboot.version>
         <!-- app.server could be -jetty, -undertow, -tomcat, or blank if you plan to provide appserver -->
-        <app.server>-tomcat</app.server>
+        <app.server>-jetty</app.server>
 
         <mainClassName>org.springframework.boot.loader.WarLauncher</mainClassName>
         <isExecutable>false</isExecutable>
@@ -82,7 +82,7 @@
     </properties>
 
     <repositories>
-        <repository>
+        <!--<repository>
             <id>sonatype-releases</id>
             <url>http://oss.sonatype.org/content/repositories/releases/</url>
             <snapshots>
@@ -101,7 +101,7 @@
             <releases>
                 <enabled>false</enabled>
             </releases>
-        </repository>
+        </repository>-->
         <repository>
             <id>shibboleth-releases</id>
             <url>https://build.shibboleth.net/nexus/content/repositories/releases</url>
@@ -168,7 +168,7 @@
             </activation>
             <id>bootiful</id>
             <properties>
-                <app.server>-tomcat</app.server>
+                <app.server>-jetty</app.server>
                 <isExecutable>false</isExecutable>
             </properties>
             <dependencies>
