@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd ">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.apereo.cas</groupId>
-    <artifactId>cas-overlay</artifactId>
+    <artifactId>cas-overlay-template</artifactId>
     <packaging>war</packaging>
     <version>1.0</version>
 
@@ -67,7 +67,7 @@
     </build>
 
     <properties>
-        <cas.version>5.3.9</cas.version>
+        <cas.version>5.3.11</cas.version>
         <springboot.version>1.5.18.RELEASE</springboot.version>
         <!-- app.server could be -jetty, -undertow, -tomcat, or blank if you plan to provide appserver -->
         <app.server>-jetty</app.server>
@@ -82,9 +82,9 @@
     </properties>
 
     <repositories>
-        <!--<repository>
-            <id>sonatype-releases</id>
-            <url>http://oss.sonatype.org/content/repositories/releases/</url>
+        <repository>
+            <id>aliyun-jcenter</id>
+            <url>https://maven.aliyun.com/repository/jcenter</url>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
@@ -92,16 +92,6 @@
                 <enabled>true</enabled>
             </releases>
         </repository>
-        <repository>
-            <id>sonatype-snapshots</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-        </repository>-->
         <repository>
             <id>shibboleth-releases</id>
             <url>https://build.shibboleth.net/nexus/content/repositories/releases</url>
@@ -125,6 +115,16 @@
                 <!--
                 ...Additional dependencies may be placed here...
                 -->
+                <dependency>
+                    <groupId>org.apereo.cas</groupId>
+                    <artifactId>cas-server-support-mongo</artifactId>
+                    <version>${cas.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.apereo.cas</groupId>
+                    <artifactId>cas-server-support-mongo-ticket-registry</artifactId>
+                    <version>${cas.version}</version>
+                </dependency>
             </dependencies>
         </profile>
 
